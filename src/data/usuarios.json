@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "nombre": "ALejandro",
+        "apellido": "Max",
+        "edad": 21,
+        "correo": "a@gmail.com",
+        "contrasena": 123,
+        "rol": "ADMIN",
+        "estado": "ACTIVO"
+    },
+    {
+        "id": 2,
+        "nombre": "Algo",
+        "apellido": "Algo",
+        "edad": 2,
+        "correo": "asasdasd",
+        "contrasena": 13,
+        "rol": "ADMIN",
+        "estado": "ACTIVO"
+    }
+]
