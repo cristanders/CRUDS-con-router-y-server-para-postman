@@ -1,7 +1,7 @@
-import { menuPrincipal } from "./menu/MenuPrincipal";
+import { iniciarSesion } from "./menu/Login";
 
 async function main() {
-    await menuPrincipal();
+    await iniciarSesion();
 }
 
 main();

@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "empresa": "Kinal",
+        "contacto": "Francisco",
+        "telefono": 12345678,
+        "correo": "kinal@gmail.com"
+    },
+    {
+        "id": 2,
+        "empresa": "Cementos Progreso",
+        "contacto": "Juan",
+        "telefono": 12345678,
+        "correo": "cementosprogreso@gmail.com"
+    }
+]

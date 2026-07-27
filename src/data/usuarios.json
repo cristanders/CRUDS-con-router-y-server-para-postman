@@ -18,5 +18,25 @@
         "contrasena": 13,
         "rol": "ADMIN",
         "estado": "ACTIVO"
+    },
+    {
+        "id": 0,
+        "nombre": "",
+        "apellido": "",
+        "edad": 0,
+        "correo": "",
+        "contrasena": 0,
+        "rol": "",
+        "estado": ""
+    },
+    {
+        "id": 8,
+        "nombre": "Brayan",
+        "apellido": "Campa",
+        "edad": 21,
+        "correo": "campa@hotmail.com",
+        "contrasena": 12,
+        "rol": "USUARIO",
+        "estado": "ACTIVO"
     }
 ]

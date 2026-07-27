@@ -9,9 +9,17 @@ export class UsuarioService {
         return await this.repository.obtenerUsuarios();
     }
 
-    // Métdodo para agregar
+    // Método para agregar
     async agregar(usuario: Usuario): Promise<void> {
         try {
+            const correoValido = /@(gmail\.com|hotmail\.com|outlook\.com)$/i.test(usuario.correo);
+            
+
+            if (!correoValido) {
+                console.log("El correo debe ser de Gmail, Hotmail o Outlook.");
+                return;
+            }
+
             const usuarios = await this.repository.obtenerUsuarios();
 
             const existe = usuarios.some(u => u.id === usuario.id);
@@ -25,7 +33,7 @@ export class UsuarioService {
 
             await this.repository.guardarUsuarios(usuarios);
 
-            console.log("Usuarios creado correctamente.");
+            console.log("Usuario creado correctamente.");
         } catch (error) {
             console.log("Error al crear el usuario.");
         }
@@ -34,6 +42,13 @@ export class UsuarioService {
     // Método para actualizar
     async actualizar(usuario: Usuario): Promise<void> {
         try {
+            const correoValido = /@(gmail\.com|hotmail\.com|outlook\.com)$/i.test(usuario.correo);
+
+            if (!correoValido) {
+                console.log("El correo debe ser de Gmail, Hotmail o Outlook.");
+                return;
+            }
+
             const usuarios = await this.repository.obtenerUsuarios();
 
             const indice = usuarios.findIndex(u => u.id === usuario.id);
@@ -61,12 +76,13 @@ export class UsuarioService {
             const nuevos = usuarios.filter(u => u.id !== id);
 
             if (nuevos.length === usuarios.length) {
-                false;
+                console.log("El usuario con ese ID no existe.");
+                return;
             }
 
             await this.repository.guardarUsuarios(nuevos);
 
-            console.log("Usuario eliminado.");
+            console.log("Usuario eliminado correctamente.");
         } catch (error) {
             console.log("Error al eliminar.");
         }
