@@ -1,4 +1,4 @@
-import { Estado } from "../models/Estado";
+import { Estado } from "../enum/Estado";
 import { Rol } from "../models/Rol";
 import { UsuarioService } from "../service/UsuarioService";
 import { rl } from "../utils/Readline";

@@ -1,7 +1,7 @@
-import { Estado } from "../models/Estado";
+import { Estado } from "../enum/Estado";
 import { Rol } from "../models/Rol";
 import { UsuarioService } from "../service/UsuarioService";
-import { ProductoMenu } from "./ProductoMenu";
+import { ProductoMenu } from "../enum/ProductoMenu";
 import { ProveedorMenu } from "./ProveedorMenu"; 
 import { rl } from "../utils/Readline";
 

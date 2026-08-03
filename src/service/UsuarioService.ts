@@ -1,4 +1,4 @@
-import { UsuarioRepository } from "../data/UsuarioRepository";
+import { UsuarioRepository } from "../repository/UsuarioRepository";
 import { Usuario } from "../models/Usuario";
 
 export class UsuarioService {
@@ -11,80 +11,54 @@ export class UsuarioService {
 
     // Método para agregar
     async agregar(usuario: Usuario): Promise<void> {
-        try {
-            const correoValido = /@(gmail\.com|hotmail\.com|outlook\.com)$/i.test(usuario.correo);
-            
-
-            if (!correoValido) {
-                console.log("El correo debe ser de Gmail, Hotmail o Outlook.");
-                return;
-            }
-
-            const usuarios = await this.repository.obtenerUsuarios();
-
-            const existe = usuarios.some(u => u.id === usuario.id);
-
-            if (existe) {
-                console.log("Ya existe un usuario con ese ID.");
-                return;
-            }
-
-            usuarios.push(usuario);
-
-            await this.repository.guardarUsuarios(usuarios);
-
-            console.log("Usuario creado correctamente.");
-        } catch (error) {
-            console.log("Error al crear el usuario.");
+        const correoValido = /@(gmail\.com|hotmail\.com|outlook\.com)$/i.test(usuario.correo);
+        
+        if (!correoValido) {
+            throw new Error("El correo debe ser de Gmail, Hotmail o Outlook.");
         }
+
+        const usuarios = await this.repository.obtenerUsuarios();
+        const existe = usuarios.some(u => u.id === usuario.id);
+
+        if (existe) {
+            throw new Error("Ya existe un usuario con ese ID.");
+        }
+
+        usuarios.push(usuario);
+        await this.repository.guardarUsuarios(usuarios);
+        console.log("Usuario creado correctamente.");
     }
 
     // Método para actualizar
     async actualizar(usuario: Usuario): Promise<void> {
-        try {
-            const correoValido = /@(gmail\.com|hotmail\.com|outlook\.com)$/i.test(usuario.correo);
+        const correoValido = /@(gmail\.com|hotmail\.com|outlook\.com)$/i.test(usuario.correo);
 
-            if (!correoValido) {
-                console.log("El correo debe ser de Gmail, Hotmail o Outlook.");
-                return;
-            }
-
-            const usuarios = await this.repository.obtenerUsuarios();
-
-            const indice = usuarios.findIndex(u => u.id === usuario.id);
-
-            if (indice === -1) {
-                console.log("El usuario no existe.");
-                return;
-            }
-
-            usuarios[indice] = usuario;
-
-            await this.repository.guardarUsuarios(usuarios);
-
-            console.log("Usuario Actualizado.");
-        } catch (error) {
-            console.log("Error al actualizar el usuario.");
+        if (!correoValido) {
+            throw new Error("El correo debe ser de Gmail, Hotmail o Outlook.");
         }
+
+        const usuarios = await this.repository.obtenerUsuarios();
+        const indice = usuarios.findIndex(u => u.id === usuario.id);
+
+        if (indice === -1) {
+            throw new Error("El usuario no existe.");
+        }
+
+        usuarios[indice] = usuario;
+        await this.repository.guardarUsuarios(usuarios);
+        console.log("Usuario Actualizado.");
     }
 
     // Método para eliminar
     async eliminar(id: number): Promise<void> {
-        try {
-            const usuarios = await this.repository.obtenerUsuarios();
+        const usuarios = await this.repository.obtenerUsuarios();
+        const nuevos = usuarios.filter(u => u.id !== id);
 
-            const nuevos = usuarios.filter(u => u.id !== id);
-
-            if (nuevos.length === usuarios.length) {
-                console.log("El usuario con ese ID no existe.");
-                return;
-            }
-
-            await this.repository.guardarUsuarios(nuevos);
-
-            console.log("Usuario eliminado correctamente.");
-        } catch (error) {
-            console.log("Error al eliminar.");
+        if (nuevos.length === usuarios.length) {
+            throw new Error("El usuario con ese ID no existe.");
         }
+
+        await this.repository.guardarUsuarios(nuevos);
+        console.log("Usuario eliminado correctamente.");
     }
 }

@@ -1,4 +1,4 @@
-import { ProveedorRepository } from "../data/ProveedorRepository";
+import { ProveedorRepository } from "../repository/ProveedorRepository";
 import { Proveedor } from "../models/Proveedor";
 
 export class ProveedorService {

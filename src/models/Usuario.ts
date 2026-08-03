@@ -1,4 +1,4 @@
-import { Estado } from "./Estado";
+import { Estado } from "../enum/Estado";
 import { Rol } from "./Rol";
 
 export interface Usuario {

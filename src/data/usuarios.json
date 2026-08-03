@@ -1,42 +1,7 @@
 [
     {
-        "id": 1,
-        "nombre": "ALejandro",
-        "apellido": "Max",
-        "edad": 21,
-        "correo": "a@gmail.com",
-        "contrasena": 123,
-        "rol": "ADMIN",
-        "estado": "ACTIVO"
-    },
-    {
-        "id": 2,
-        "nombre": "Algo",
-        "apellido": "Algo",
-        "edad": 2,
-        "correo": "asasdasd",
-        "contrasena": 13,
-        "rol": "ADMIN",
-        "estado": "ACTIVO"
-    },
-    {
-        "id": 0,
-        "nombre": "",
-        "apellido": "",
-        "edad": 0,
-        "correo": "",
-        "contrasena": 0,
-        "rol": "",
-        "estado": ""
-    },
-    {
-        "id": 8,
-        "nombre": "Brayan",
-        "apellido": "Campa",
-        "edad": 21,
-        "correo": "campa@hotmail.com",
-        "contrasena": 12,
-        "rol": "USUARIO",
-        "estado": "ACTIVO"
+        "id": 9,
+        "nombre": "Cristian",
+        "correo": "cristian@gmail.com"
     }
 ]
